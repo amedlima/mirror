@@ -15,3 +15,4 @@ class Player(Block):
             self.x -= MOVE_STEP         
         elif direction == "right":
             self.x += MOVE_STEP
+            
