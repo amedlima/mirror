@@ -6,13 +6,22 @@ class Player(Block):
     def __init__(self, width, height, color, x, y):
         super().__init__(x, y, color, width, height)
 
-    def move(self, direction):
+    def move(self, direction, maze = None):
+        dx = dy = 0
         if direction == "up":
-            self.y -= MOVE_STEP
+            dy -= MOVE_STEP
         elif direction == "down":
-            self.y += MOVE_STEP
+            dy += MOVE_STEP
         elif direction == "left":
-            self.x -= MOVE_STEP         
+            dx -= MOVE_STEP         
         elif direction == "right":
-            self.x += MOVE_STEP
-            
+            dx += MOVE_STEP
+
+        if maze is not None:
+            new_rect = pygame.Rect(self.x + dx, self.y + dy, self.width, self.height)
+            if not maze.can_move(new_rect):
+                return False
+        
+        self.x += dx
+        self.y += dy
+        return True
