@@ -314,7 +314,7 @@ while running:
         draw_text(screen, "Now reach the left goal!", 
                              font_large, 450, 30, TEXT_COLOR)
     else:
-        draw_text(screen, "🎉 You Win! Press ESC to quit 🎉", 
+        draw_text(screen, "You Win! Press ESC to quit", 
                              font_large, 450, 30, TEXT_COLOR)
 
     pygame.display.flip()
